@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "8a329424-e3ae-44b4-9ee0-c6b61e144b40",
+		"name": "Educase-SchoolManagement",
+		"description": "## **API Endpoints**\n\n### 1\\. **Add School API**\n\n- **Endpoint**: `/addSchool`\n    \n- **Method**: `POST`\n    \n- **Description**: Allows users to add a new school by providing its name, address, latitude, and longitude.\n    \n\n#### **Request Format**\n\n- Body:\n    \n    - `Content-Type: json`\n        \n\n``` json\n{\n  \"name\": \"Adamas\",\n  \"address\": \"123 Main Street\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060\n}\n\n ```\n\n#### **Success Response**\n\n- **Status**: `201 Created`\n    \n\n``` json\n{\n    \"message\": \"School added successfully.\",\n    \"school\": {\n        \"id\": 3,\n        \"name\": \"Adamas\",\n        \"address\": \"123 Main Street\",\n        \"latitude\": 40.7128,\n        \"longitude\": -74.006\n    }\n}\n\n ```\n\n#### **Error Response**\n\n- **Status**: `400 Bad Request`\n    \n\n``` json\n{\n    \"error\": \"All fields are required.\"\n}\n\n ```\n\n---\n\n### 2\\. **List Schools API**\n\n- **Endpoint**: `/listSchools`\n    \n- **Method**: `GET`\n    \n- **Description**: Retrieves a list of schools sorted by proximity to a specified location (latitude and longitude).\n    \n\n#### **Query Parameters**:\n\n- `latitude` (required): Latitude of the user's current location.\n    \n- `longitude` (required): Longitude of the user's current location.\n    \n\n#### **Example Request URL**:\n\n`GET /listSchools?latitude=39.798&longitude=-89.6555`\n\n#### **Success Response**\n\n- **Status**: `200 OK`\n    \n\n``` json\n[\n    {\n        \"id\": 1,\n        \"name\": \"test\",\n        \"address\": \"5678 Elm Street, Springfield, IL\",\n        \"latitude\": 39.798,\n        \"longitude\": -89.6555,\n        \"distance\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"ABC High School\",\n        \"address\": \"123 Main Street\",\n        \"latitude\": 40.7128,\n        \"longitude\": -74.006,\n        \"distance\": 1331.639338601047\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Adamas\",\n        \"address\": \"123 Main Street\",\n        \"latitude\": 40.7128,\n        \"longitude\": -74.006,\n        \"distance\": 1331.639338601047\n    }\n]\n\n ```\n\n#### **Error Response**\n\n- **Status**: `400 Bad Request`\n    \n\n``` json\n{\n  \"error\": \"Latitude and longitude are required.\"\n}\n\n ```\n\n---\n\n## **Postman Collection Structure**\n\nThe Postman collection is divided into two main requests:\n\n1. **Add School API**\n    \n    - **Method**: `POST`\n        \n    - **Endpoint**: `/addSchool`\n        \n    - **Request**: Add a new school with required details (name, address, latitude, longitude).\n        \n    - **Response**: Success or validation error message.\n        \n2. **List Schools API**\n    \n    - **Method**: `GET`\n        \n    - **Endpoint**: `/listSchools`\n        \n    - **Query Parameters**: `latitude`, `longitude` (used to calculate proximity).\n        \n    - **Response**: List of schools ordered by proximity to the provided latitude and longitude.\n        \n\n---",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37262740",
+		"_collection_link": "https://www.postman.com/cryosat-cosmologist-97887857/educase/collection/6n7tchx/educase-schoolmanagement?action=share&source=collection_link&creator=37262740"
+	},
+	"item": [
+		{
+			"name": "AddingSchool",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"ABC High School\",\r\n  \"address\": \"123 Main Street\",\r\n  \"latitude\": 40.7128,\r\n  \"longitude\": -74.0060\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSchool"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddingSchoolWithoutLat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"ABC High School\",\r\n  \"address\": \"123 Main Street\",\r\n  \"latitude\": 40.7128,\r\n  \"longitude\": -74.0060\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addSchool"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExactValueForLatAndLong",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "NearbyValueForLatAndLong",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "PassingNoLatLong",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"{\r",
+					"  \"name\": \"Springfield Elementary\",\r",
+					"  \"address\": \"742 Evergreen Terrace\",\r",
+					"  \"latitude\": 37.7749,\r",
+					"  \"longitude\": -122.4194\r",
+					"}\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"{\r",
+					"  \"message\": \"School added successfully\",\r",
+					"  \"school\": {\r",
+					"    \"id\": 1,\r",
+					"    \"name\": \"Springfield Elementary\",\r",
+					"    \"address\": \"742 Evergreen Terrace\",\r",
+					"    \"latitude\": 37.7749,\r",
+					"    \"longitude\": -122.4194\r",
+					"  }\r",
+					"}\r",
+					""
+				]
+			}
+		}
+	]
+}
