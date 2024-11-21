@@ -14,42 +14,6 @@ This project implements a simple Node.js application to manage school data. It p
 
 ---
 
-## **Setup Instructions**
-
-### **Prerequisites**
-- Node.js (v16 or above)
-- MySQL server
-- Postman for testing
-
-### **Steps**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/divyanshu-dugar/educase-school-management-system.git
-   cd educase-school-management-system
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Configure environment variables:
-   Create a `.env` file in the root directory and add your MySQL credentials:
-   ```env
-   DB_HOST=127.0.0.1
-   DB_USER=root
-   DB_PASSWORD=YourPassword
-   DB_NAME=school_management
-   DB_PORT=3306
-   ```
-
-4. Start the server:
-   ```bash
-   npm start
-   ```
-   The server will run at `http://localhost:3000`.
----
-
 ## **API Endpoints**
 
 ### **1. Add School API**
@@ -81,10 +45,9 @@ This project implements a simple Node.js application to manage school data. It p
    - **Validation Error (400):**
      ```json
      {
-       "error": "Validation error: All fields are required."
+       "error": "All fields are required."
      }
      ```
-
 ---
 
 ### **2. List Schools API**
@@ -103,20 +66,20 @@ This project implements a simple Node.js application to manage school data. It p
      {
        "schools": [
          {
-           "id": 2,
-           "name": "Shelbyville High",
-           "address": "123 Shelbyville Rd",
-           "latitude": 37.8044,
-           "longitude": -122.2711,
-           "distance": 10.5
-         },
-         {
            "id": 1,
            "name": "Springfield Elementary",
            "address": "742 Evergreen Terrace",
            "latitude": 37.7749,
            "longitude": -122.4194,
            "distance": 20.3
+         },
+         {
+           "id": 2,
+           "name": "Shelbyville High",
+           "address": "123 Shelbyville Rd",
+           "latitude": 37.8044,
+           "longitude": -122.2711,
+           "distance": 10.5
          }
        ]
      }
