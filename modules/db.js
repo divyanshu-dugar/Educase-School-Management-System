@@ -7,35 +7,7 @@ env.config(path.join(__dirname , '../.env'));
 // Set up a sequelize object
 // -------------------------
 
-// MYSQL - Local
-
-// const sequelize = new Sequelize(
-//   process.env.DB_NAME, // Database name
-//   process.env.DB_USER, // Database user
-//   process.env.DB_PASSWORD, // Database password
-//   {
-//     host: process.env.DB_HOST, // Host
-//     dialect: 'mysql', // Dialect
-//     dialectModule: require('mysql2'),
-//     port: process.env.DB_PORT || 3306, // Port (default to 3306 for MySQL)
-//     dialectOptions: {
-//       // Remove SSL options, as they are unnecessary for local databases
-//     },
-//   }
-// );
-
-// GOOGLE CLOUD
-
-// const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
-//   dialect: 'mysql',
-//   host: process.env.DB_HOST, // This will be the connection name for Cloud SQL or public IP for local development
-//   dialectOptions: {
-//     socketPath: process.env.DB_HOST && process.env.DB_HOST.startsWith('/cloudsql') ? process.env.DB_HOST : undefined,
-//   },
-// });
-
 // Aiven
-
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: 'school-management-divyu2004-2029.e.aivencloud.com',
   port: process.env.DB_PORT,
