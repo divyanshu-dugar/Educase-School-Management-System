@@ -44,6 +44,7 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,    // Database host (Aiven's provided host)
     port: process.env.DB_PORT,    // Database port
     dialect: 'mysql',             // Database dialect (MySQL in this case)
+    dialectModule: require('mysql2'),
     dialectOptions: {
       ssl: {
         require: true,             // Enforces SSL
