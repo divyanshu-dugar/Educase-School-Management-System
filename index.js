@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 
-const School = require('../modules/school');
+const School = require('./modules/school');
 const haversine = require('haversine-distance');
 const bodyParser = require('body-parser');
 
