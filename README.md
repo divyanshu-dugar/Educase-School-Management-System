@@ -96,7 +96,7 @@ This project implements a simple Node.js application to manage school data. It p
 ## **Postman Collection**
 
 1. Download the Postman collection file:  
-   [Download Postman Collection](https://github.com/divyanshu-dugar/Educase-School-Management-System/SchoolManagement.postman_collection.json)
+   [Download Postman Collection](https://github.com/divyanshu-dugar/Educase-School-Management-System/Educase-SchoolManagement.postman_collection.json)
 
 2. Import the collection into Postman to test the APIs. It includes:
    - **Add School API**: Pre-filled request body example.
