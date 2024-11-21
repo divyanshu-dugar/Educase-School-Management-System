@@ -11,3 +11,5 @@ const School = require('./school');
     process.exit();
   }
 })();
+
+module.exports = app;
