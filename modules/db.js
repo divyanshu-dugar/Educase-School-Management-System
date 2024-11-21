@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST, // Host
     dialect: 'mysql', // Dialect
+    dialectModule: require('mysql2'),
     port: process.env.DB_PORT || 3306, // Port (default to 3306 for MySQL)
     dialectOptions: {
       // Remove SSL options, as they are unnecessary for local databases
