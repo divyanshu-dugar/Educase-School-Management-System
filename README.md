@@ -124,7 +124,7 @@ This project implements a simple Node.js application to manage school data. It p
    - **Validation Error (400):**
      ```json
      {
-       "error": "Missing or invalid latitude and longitude."
+       "error": "Latitude and longitude are required."
      }
      ```
 
