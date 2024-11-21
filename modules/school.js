@@ -26,4 +26,4 @@ const School = sequelize.define('School', {
   timestamps: false,
 });
 
-module.exports = School, app;
+module.exports = School;

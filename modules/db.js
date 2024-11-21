@@ -32,4 +32,4 @@ const sequelize = new Sequelize(
 //     console.error('Unable to connect to the database:', err);
 // });
 
-module.exports = sequelize, app;
+module.exports = sequelize;
