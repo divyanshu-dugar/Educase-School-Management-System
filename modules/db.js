@@ -36,24 +36,19 @@ env.config(path.join(__dirname , '../.env'));
 
 // Aiven
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,   // Database name
-  process.env.DB_USER,   // Database user
-  process.env.DB_PASSWORD, // Database password
-  {
-    host: process.env.DB_HOST,    // Database host (Aiven's provided host)
-    port: process.env.DB_PORT,    // Database port
-    dialect: 'mysql',             // Database dialect (MySQL in this case)
-    dialectModule: require('mysql2'),
-    dialectOptions: {
-      ssl: {
-        require: true,             // Enforces SSL
-        rejectUnauthorized: false, // Bypasses self-signed certificate errors
-      },
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: 'mysql',
+  dialectModule: require('mysql2'),
+  dialectOptions: {
+    ssl: {
+      require: process.env.DB_SSL === 'true',
+      rejectUnauthorized: false, // For self-signed certificates
     },
-    logging: false,   // Optional: Set to true to see SQL queries in console
-  }
-);
+  },
+});
+
 
 
 // Test to check for the Data Base Connection
